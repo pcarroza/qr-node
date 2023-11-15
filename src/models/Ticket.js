@@ -1,33 +1,33 @@
-const TicketDAO = require("./DAO/TicketDAO");
+const FactoryMethodDAO = require("./DAO/FactoryMethodDAO");
 
 class Ticket {
-  constructor() {
-    this.ticketDAO = new TicketDAO();
-  }
+	constructor() {
+		this.ticket = new FactoryMethodDAO().getInstanceFactory().getTicketDAO();
+	}
 
-  create(req, res) {
-    this.ticketDAO.create(req, res);
-  }
+	create(req, res) {
+		this.ticket.create(req, res);
+	}
 
-  deleteTicket(req, res) {
-    this.ticketDAO.deleteTicket(req, res);
-  }
+	deleteTicket(req, res) {
+		this.ticket.deleteTicket(req, res);
+	}
 
-  validate(req, res) {
-    this.ticketDAO.validate(req, res);
-  }
+	validate(req, res) {
+		this.ticket.validate(req, res);
+	}
 
-  findTickets(req, res) {
-    this.ticketDAO.findTickets(req, res);
-  }
+	findTickets(req, res) {
+		this.ticket.findTickets(req, res);
+	}
 
-  updateStatusTicket(req, res) {
-    this.ticketDAO.updateStatusTicket(req, res);
-  }
+	updateStatusTicket(req, res) {
+		this.ticket.updateStatusTicket(req, res);
+	}
 
-  findTicketStatusByCode(req, res) {
-    this.ticketDAO.findTicketStatusByCode(req, res);
-  }
+	findTicketStatusByCode(req, res) {
+		this.ticket.findTicketStatusByCode(req, res);
+	}
 }
 
 module.exports = Ticket;
